@@ -5,7 +5,7 @@ date: "September 14, 2018"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE, echo=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
@@ -14,12 +14,16 @@ knitr::opts_chunk$set(echo = TRUE)
 This page, created by R Markdown, shows an interactive map created by Leaflet.
 This is for the Assignment of Week 2 of the Coursera Developing Data Products course
 
-## Including Plots
+## Interactive Map
 
-You can also embed plots, for example:
+This map is created on 14-09-2018.
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{r leaflet, echo=TRUE}
+require("leaflet")
+myMap <- leaflet() %>% addTiles()
+myMap <- myMap %>% addMarkers(lat=52.378669, lng=4.871466000000055, popup="Data Science Lab.")
+myMap <- myMap %>% addMarkers(lat=52.36504249999999, lng=4.906134299999962, popup="School of Data Science Amsterdam")
+myMap
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
